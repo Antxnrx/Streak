@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gentle-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  75% { transform: translateX(1px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes liftUp {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@layer components {
+  .soft-card {
+    @apply rounded-2xl shadow-lg;
+    background-color: #f7f7f7;
+    box-shadow: 0px 4px 20px rgba(74, 108, 247, 0.12);
+  }
+
+  .soft-card-white {
+    @apply rounded-2xl shadow-lg;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px rgba(74, 108, 247, 0.12);
+  }
+
+  .primary-button {
+    @apply w-full py-4 rounded-full font-semibold text-white transition-all duration-200;
+    background-color: #4a6cf7;
+    box-shadow: 0px 4px 20px rgba(74, 108, 247, 0.12);
+  }
+
+  .primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 28px rgba(74, 108, 247, 0.2);
+  }
+
+  .primary-button:active {
+    transform: scale(0.98);
+  }
+
+  .input-field {
+    @apply w-full px-6 py-4 rounded-2xl border-0 outline-none transition-all;
+    background-color: #f7f7f7;
+    color: #000000;
+    font-size: 16px;
+  }
+
+  .input-field::placeholder {
+    color: #c4c4c4;
+  }
+
+  .input-field:focus {
+    box-shadow: 0px 0px 0px 2px rgba(74, 108, 247, 0.2);
+  }
+
+  .text-title {
+    @apply text-2xl font-semibold;
+    color: #000000;
+  }
+
+  .text-subhead {
+    @apply text-lg font-medium;
+    color: #000000;
+  }
+
+  .text-body {
+    @apply text-base;
+    color: #000000;
+  }
+
+  .text-caption {
+    @apply text-sm;
+    color: #9a9a9a;
+  }
+
+  .text-accent {
+    color: #4a6cf7;
+  }
+
+  /* Premium Soft Card with Lift-Up Animation */
+  .cardSoft {
+    border-radius: 24px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 
+      0px 4px 15px rgba(0, 0, 0, 0.10), 
+      0px 8px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Hover state - desktop only */
+  @media (hover: hover) {
+    .cardSoft:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0px 6px 20px rgba(0, 0, 0, 0.14),
+        0px 10px 35px rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  /* Active/Tap state */
+  .cardSoft:active {
+    transform: scale(0.98);
+    transition: transform 0.15s ease;
+  }
+
+  /* Fade-in animation */
+  .fadeInUp {
+    animation: fadeInUp 0.35s ease forwards;
+  }
+
+  /* Stronger shadow for primary containers */
+  .shadowPrimary {
+    box-shadow: 
+      0px 4px 15px rgba(0, 0, 0, 0.10), 
+      0px 8px 30px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Enhanced shadow on hover */
+  .shadowPrimary:hover {
+    box-shadow: 
+      0px 6px 20px rgba(0, 0, 0, 0.14),
+      0px 10px 35px rgba(0, 0, 0, 0.10) !important;
+  }
+
+  /* Modal/Popup strong shadow */
+  .shadowStrong {
+    box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Rounded corners utility */
+  .roundedSoft {
+    border-radius: 24px;
+  }
+
+  .roundedButton {
+    border-radius: 20px;
+  }
+
+  .roundedModal {
+    border-radius: 28px;
+  }
+}
