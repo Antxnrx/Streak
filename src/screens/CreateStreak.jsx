@@ -87,9 +87,14 @@ const CreateStreak = ({ onNavigate }) => {
             value={days}
             onChange={(e) => {
               const val = e.target.value;
-              // Only allow numbers and ensure minimum 3
-              if (val === '' || (parseInt(val) >= 3 && !isNaN(parseInt(val)))) {
+              // Only allow empty or numbers >= 3
+              if (val === '') {
                 setDays(val);
+              } else {
+                const num = parseInt(val);
+                if (!isNaN(num) && num >= 3) {
+                  setDays(val);
+                }
               }
             }}
             type="number"
