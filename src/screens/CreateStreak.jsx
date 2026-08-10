@@ -26,8 +26,8 @@ const CreateStreak = ({ onNavigate }) => {
       return;
     }
     
-    if (!days.trim() || targetDays < 3) {
-      alert('Target days must be at least 3 days');
+    if (!days.trim() || targetDays < 1) {
+      alert('Target days must be at least 1 day');
       return;
     }
 
@@ -46,7 +46,7 @@ const CreateStreak = ({ onNavigate }) => {
     }
   };
 
-  const isValid = name.trim() && days.trim() && parseInt(days) >= 3;
+  const isValid = name.trim() && days.trim() && parseInt(days) >= 1;
 
   return (
     <div className="min-h-screen bg-white p-6">
@@ -87,19 +87,19 @@ const CreateStreak = ({ onNavigate }) => {
             value={days}
             onChange={(e) => {
               const val = e.target.value;
-              // Only allow empty or numbers >= 3
+              // Only allow empty or numbers >= 1
               if (val === '') {
                 setDays(val);
               } else {
                 const num = parseInt(val);
-                if (!isNaN(num) && num >= 3) {
+                if (!isNaN(num) && num >= 1) {
                   setDays(val);
                 }
               }
             }}
             type="number"
-            min="3"
-            label="Target Days (Minimum 3)"
+            min="1"
+            label="Target Days (Minimum 1)"
             disabled={loading}
           />
           <div>
